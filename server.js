@@ -24,6 +24,8 @@ app.use(bodyParser.json());
 app.use(cors());
 // db config
 
+const mongoURI = 'mongodb+srv://admin:B4QBeSPm1p8aTz2P@cluster0.qsist.mongodb.net/backend-facebook?retryWrites=true&w=majority'
+
 // api routes
 app.get('/', (req, res) =>  res.status(200).send("Hello world 🚀"));
 
