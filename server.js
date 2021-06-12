@@ -24,10 +24,24 @@ app.use(bodyParser.json());
 app.use(cors());
 // db config
 
-const mongoURI = 'mongodb+srv://admin:B4QBeSPm1p8aTz2P@cluster0.qsist.mongodb.net/backend-facebook?retryWrites=true&w=majority'
+const mongoURI = 'mongodb+srv://admin:B4QBeSPm1p8aTz2P@cluster0.qsist.mongodb.net/backend-facebook?retryWrites=true&w=majority';
+
+const conn = mongoose.createConnection(mongoURI, {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
+mongoose.connect(mongoURI, {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
 
 // api routes
 app.get('/', (req, res) =>  res.status(200).send("Hello world 🚀"));
+app.get('/', (req, res) =>  res.status(200).send("Hello world and Rokas 🚀"));
 
 // listen
 
