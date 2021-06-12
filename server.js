@@ -41,7 +41,6 @@ mongoose.connect(mongoURI, {
 
 // api routes
 app.get('/', (req, res) =>  res.status(200).send("Hello world 🚀"));
-app.get('/', (req, res) =>  res.status(200).send("Hello world and Rokas 🚀"));
 
 // listen
 
