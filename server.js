@@ -122,6 +122,7 @@ app.get('/retrieve/images/single', (req, res) => {
             } else {
                 const readstream = gfs.createReadStream(file.filename);
                 readstream.pipe(res);
+                // the end of backend
             }
         }
     })
