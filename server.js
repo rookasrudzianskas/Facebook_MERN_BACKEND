@@ -18,6 +18,14 @@ Grid.mongo = mongoose.mongo;
 const app = express();
 const port = process.env.PORT || 9000;
 
+const pusher = new Pusher({
+    appId: "1218994",
+    key: "0fb031a64d5b7209ef0f",
+    secret: "5fcd3466705d7ea6b5ed",
+    cluster: "mt1",
+    useTLS: true
+});
+
 
 // middlewares
 
