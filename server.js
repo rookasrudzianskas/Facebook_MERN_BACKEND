@@ -23,9 +23,9 @@ const port = process.env.PORT || 9000;
 app.use(bodyParser.json());
 app.use(cors());
 // db config
-
+// this makes connection between db and the fb app backend
 const mongoURI = 'mongodb+srv://admin:B4QBeSPm1p8aTz2P@cluster0.qsist.mongodb.net/backend-facebook?retryWrites=true&w=majority';
-
+// some boring stuff goes in here
 const conn = mongoose.createConnection(mongoURI, {
     useCreateIndex: true,
     useNewUrlParser: true,
