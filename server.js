@@ -88,6 +88,7 @@ app.post('/upload/post', (req, res) => {
 
     console.log(dbPost);
 
+    // new document in dbPost collection
     mongoPosts.create(dbPost, (err, data) => {
         if(err) {
             res.status(500).send(err);
