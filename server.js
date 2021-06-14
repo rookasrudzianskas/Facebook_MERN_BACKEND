@@ -13,7 +13,7 @@ Grid.mongo = mongoose.mongo;
 
 
 
-//app ocnfig
+//app config
 
 const app = express();
 const port = process.env.PORT || 9000;
