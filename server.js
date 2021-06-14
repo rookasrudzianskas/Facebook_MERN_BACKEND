@@ -75,9 +75,9 @@ mongoose.connect(mongoURI, {
 // api routes
 app.get('/', (req, res) =>  res.status(200).send("Backend is working on 🎊 🚀"));
 
-// normal api route, to upload the imagees // post
+// normal api route, to upload the images // post
 
-app.post('/api/upload/image', upload.single('file'), (req, res) => {
+app.post('/upload/image', upload.single('file'), (req, res) => {
     res.status(201).send(req.file);
 })
 // listen
