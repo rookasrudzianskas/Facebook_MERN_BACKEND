@@ -43,6 +43,12 @@ const conn = mongoose.createConnection(mongoURI, {
     useUnifiedTopology: true,
 });
 
+mongoose.connection.once('open', () => {
+    console.log('DB is connected');
+    // watch the collection posts
+    const changeStream = mongoose.connection.collection('posts').watch();
+})
+
 let gfs;
 
 conn.once('open', () => {
