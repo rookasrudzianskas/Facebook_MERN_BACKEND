@@ -7,6 +7,7 @@ import Grid from "gridfs-stream";
 import bodyParser from "body-parser";
 import path from "path";
 import Pusher from "pusher";
+import mongoPosts from "./postModel.js";
 
 Grid.mongo = mongoose.mongo;
 
@@ -80,6 +81,20 @@ app.get('/', (req, res) =>  res.status(200).send("Backend is working on ğŸŠ ğŸš
 app.post('/upload/image', upload.single('file'), (req, res) => {
     // which sends back the item back
     res.status(201).send(req.file);
+});
+
+app.post('/upload/post', (req, res) => {
+    const dbPost = req.body;
+
+    console.log(dbPost);
+
+    mongoPosts.create(dbPost, (err, data) => {
+        if(err) {
+            res.status(500).send(err);
+        } else {
+            res.status(201).send(data);
+        }
+    })
 })
 // listen
 
