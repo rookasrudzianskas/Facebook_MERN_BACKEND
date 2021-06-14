@@ -78,6 +78,7 @@ app.get('/', (req, res) =>  res.status(200).send("Backend is working on ğŸŠ ğŸš
 // normal api route, to upload the images // post
 
 app.post('/upload/image', upload.single('file'), (req, res) => {
+    // which sends back the item back
     res.status(201).send(req.file);
 })
 // listen
