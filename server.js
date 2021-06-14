@@ -47,6 +47,21 @@ mongoose.connection.once('open', () => {
     console.log('DB is connected');
     // watch the collection posts
     const changeStream = mongoose.connection.collection('posts').watch();
+
+    changeStream.on('change', (change) => {
+        // some kind of change happens, this gets fired on
+        console.log(change);
+
+        if(change.operationType === 'insert') {
+            console.log('Triggered pusher');
+
+            pusher.trigger('posts', 'inserted', {
+                change: change,
+            });
+        } else {
+            console.log('Error triggering pusher here');
+        }
+    })
 })
 
 let gfs;
